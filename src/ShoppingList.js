@@ -9,7 +9,7 @@ function ConnectList({ articles }) {
     return (
         <ul>
             {articles.map( art => (
-                <li key={Math.random() * 5}>{art.title}</li>
+                <li key={art.id}>{art.title}</li>
             ))}
         </ul>
     )

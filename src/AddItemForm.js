@@ -25,9 +25,11 @@ class Form extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        let newId = Math.random() * 5;
         const { title } = this.state;
-        this.props.addArticle({ title });
+        this.props.addArticle({ title, id: newId});
         this.setState({ title: '' });
+        console.log(title, newId);
     }
 
     render() {
