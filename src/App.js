@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
 import store from './store/index';
-import { addArticle } from './actions/index';
-import List from './ShoppingList';
+import { addItem } from './actions/index';
+import ShoppingList from './ShoppingList';
 import AddItemForm from './AddItemForm';
 
+//test in console
 window.store = store;
-window.addArticle = addArticle;
+window.addItem = addItem;
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <h1>Shopping List</h1>
       </header>
       <AddItemForm />
-      <List />
+      <ShoppingList />
     </div>
   );
 }

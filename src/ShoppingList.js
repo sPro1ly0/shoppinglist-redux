@@ -1,20 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './ShoppingList.css';
 
 const mapStateToProps = state => {
-    return { articles: state.articles };
+    return { items: state.items };
 }
 
-function ConnectList({ articles }) {
+function ConnectList({ items }) {
     return (
         <ul>
-            {articles.map( art => (
-                <li key={art.id}>{art.title}</li>
+            {items.map( item => (
+                <li key={item.id}>
+                    {item.name}
+                    <div className='list-buttons'>
+                        <span role="img" aria-label="check mark">✔️</span>
+                        <span role="img" aria-label="cross mark">❌</span>
+                    </div>
+                </li>
             ))}
         </ul>
     )
 }
 
-const List = connect(mapStateToProps) (ConnectList);
+const ShoppingList = connect(mapStateToProps) (ConnectList);
 
-export default List;
+export default ShoppingList;

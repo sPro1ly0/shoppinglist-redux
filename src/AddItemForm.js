@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addArticle } from './actions/index';
+import { addItem } from './actions/index';
 import './AddItemForm.css';
 
 function mapDispatchToProps(dispatch) {
     return {
-        addArticle: article => dispatch(addArticle(article))
+        addItem: article => dispatch(addItem(article))
     };
 }
 
@@ -13,7 +13,7 @@ class Form extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: ''
+            name: ''
         };
     }
 
@@ -26,28 +26,28 @@ class Form extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         let newId = Math.random() * 5;
-        const { title } = this.state;
-        this.props.addArticle({ title, id: newId});
-        this.setState({ title: '' });
-        console.log(title, newId);
+        const { name } = this.state;
+        this.props.addItem({ name, id: newId});
+        this.setState({ name: '' });
+        //console.log(name, newId);
     }
 
     render() {
-        const { title } = this.state;
+        const { name } = this.state;
 
          return (
             <form onSubmit={this.handleSubmit}>
                 <div>
-                <label htmlFor="title">Add Item: </label>
+                <label htmlFor="name">Add an Item: </label>
                 <input
                     type="text"
-                    id="title"
-                    value={title}
+                    id="name"
+                    value={name}
                     onChange={this.handleChange}
                     required
                 />
                 </div>
-                <button type="submit">ADD</button>
+                <button type="submit">Add Item</button>
             </form>
             );
     }

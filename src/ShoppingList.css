@@ -1,0 +1,19 @@
+ul{
+    margin: 10px auto;
+    padding: 0;
+    width: 650px;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    border: 1px solid black;
+    list-style: none;
+    min-width: 200px;
+    max-width: 600px;
+    max-height: 100px;
+    padding: 10px;
+    word-wrap: break-word;
+}
+
