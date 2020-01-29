@@ -5,7 +5,7 @@ import './AddItemForm.css';
 
 function mapDispatchToProps(dispatch) {
     return {
-        addItem: article => dispatch(addItem(article))
+        addItem: item => dispatch(addItem(item))
     };
 }
 
@@ -19,15 +19,14 @@ class Form extends Component {
 
     handleChange = (e) => {
         this.setState({
-            [e.target.id] : e.target.value
+            name: e.target.value
         });
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let newId = Math.random() * 5;
         const { name } = this.state;
-        this.props.addItem({ name, id: newId});
+        this.props.addItem(name);
         this.setState({ name: '' });
         //console.log(name, newId);
     }
